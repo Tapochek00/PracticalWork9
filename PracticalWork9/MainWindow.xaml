@@ -1,0 +1,36 @@
+﻿<Window x:Class="PracticalWork8.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracticalWork8"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}">
+
+        <ListBox x:Name="list" Width="100" Height="200" HorizontalAlignment="Right" BorderThickness="5"
+                 VerticalAlignment="Center" Margin="0, 0, 20, 0" BorderBrush="#FFFFDE00"
+                 SelectionMode="Multiple" ToolTip="Для выделения значения нажмите на него">
+        </ListBox>
+
+        <ListBox x:Name="citiesList" Width="100" Height="200" HorizontalAlignment="Right" BorderThickness="5"
+                 VerticalAlignment="Center" Margin="0, 0, 170, 0" BorderBrush="#FFFFDE00"
+                 SelectionMode="Multiple" ToolTip="Для выделения значения нажмите на него">
+        </ListBox>
+
+        <Button x:Name="btn_GetMail" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Сколько отправлено" Padding="5" Margin="0, 0, 155, 65" BorderBrush="Red" Background="White" BorderThickness="3" Click="btn_GetMail_Click"></Button>
+        <TextBox x:Name="mailToCity" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 0, 195, 25" Height="25" Width="50" 
+                 SelectionBrush="#FFFFF500" BorderBrush="#FFFFF500" BorderThickness="5" IsReadOnly="True"></TextBox>
+
+        <TextBox x:Name="mailInfo" VerticalAlignment="Center" HorizontalAlignment="Center" Height="140" Width="150" 
+                 SelectionBrush="#FFFFF500" BorderBrush="#FFFFF500" BorderThickness="5" IsReadOnly="True"></TextBox>
+
+        <Button x:Name="Fill" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Заполнить" Padding="10" Margin="20" BorderBrush="Red" Background="White" BorderThickness="3" Click="Fill_Click"></Button>
+        <Button x:Name="btn_GetInfo" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Получить информацию" Padding="10" Margin="130, 0, 0, 0" BorderBrush="Red" Background="White" BorderThickness="3" Click="btn_GetInfo_Click"></Button>
+
+        <Menu HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Black" Background="Black">
+            <MenuItem x:Name="about" Header="О программе" Background="#FFEFFF5B" Click="about_Click"></MenuItem>
+            <MenuItem x:Name="exit" Header="Выход" Background="#FFEFFF5B" Click="exit_Click"></MenuItem>
+        </Menu>
+    </Grid>
+</Window>

@@ -8,25 +8,34 @@
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}">
 
+        <Label VerticalAlignment="Top" HorizontalAlignment="Right" Foreground="White" Margin="0, 80, 25, 0">Номер посылки</Label>
         <ListBox x:Name="list" Width="100" Height="200" HorizontalAlignment="Right" BorderThickness="5"
                  VerticalAlignment="Center" Margin="0, 0, 20, 0" BorderBrush="#FFFFDE00"
                  SelectionMode="Multiple" ToolTip="Для выделения значения нажмите на него">
         </ListBox>
 
+        <Label VerticalAlignment="Top" HorizontalAlignment="Right" Foreground="White" Margin="0, 80, 200, 0">Город</Label>
         <ListBox x:Name="citiesList" Width="100" Height="200" HorizontalAlignment="Right" BorderThickness="5"
                  VerticalAlignment="Center" Margin="0, 0, 170, 0" BorderBrush="#FFFFDE00"
                  SelectionMode="Multiple" ToolTip="Для выделения значения нажмите на него">
         </ListBox>
 
-        <Button x:Name="btn_GetMail" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Сколько отправлено" Padding="5" Margin="0, 0, 155, 65" BorderBrush="Red" Background="White" BorderThickness="3" Click="btn_GetMail_Click"></Button>
+        <Button x:Name="btn_GetMail" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Сколько отправлено" Padding="5" Margin="0, 0, 155, 65"
+                BorderBrush="Red" Background="White" BorderThickness="3" Click="btn_GetMail_Click" ToolTip="Выберите город и нажмите на кнопку для вывода количества отправленных в город посылок"></Button>
         <TextBox x:Name="mailToCity" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 0, 195, 25" Height="25" Width="50" 
                  SelectionBrush="#FFFFF500" BorderBrush="#FFFFF500" BorderThickness="5" IsReadOnly="True"></TextBox>
 
+        <Button x:Name="btn_AddMail" VerticalAlignment="Top" HorizontalAlignment="Center" Content="Добавить вручную" Padding="5" Margin="20, 37, 0, 0" BorderBrush="Red" Background="White" BorderThickness="3" Click="btn_AddMail_Click"></Button>
+        <Label Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top">Введите через запятую город, улицу, дом, квартиру, кому, ценность</Label>
+        <TextBox x:Name="enterMail" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="30, 40, 0, 0" Height="25" Width="300" 
+                 SelectionBrush="#FFFFF500" BorderBrush="#FFFFF500" BorderThickness="5"></TextBox>
+
+        <Label VerticalAlignment="Top" HorizontalAlignment="Right" Foreground="White" Margin="0, 100, 325, 0">Информация о посылке</Label>
         <TextBox x:Name="mailInfo" VerticalAlignment="Center" HorizontalAlignment="Center" Height="140" Width="150" 
                  SelectionBrush="#FFFFF500" BorderBrush="#FFFFF500" BorderThickness="5" IsReadOnly="True"></TextBox>
 
-        <Button x:Name="Fill" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Заполнить" Padding="10" Margin="20" BorderBrush="Red" Background="White" BorderThickness="3" Click="Fill_Click"></Button>
-        <Button x:Name="btn_GetInfo" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Получить информацию" Padding="10" Margin="130, 0, 0, 0" BorderBrush="Red" Background="White" BorderThickness="3" Click="btn_GetInfo_Click"></Button>
+        <Button x:Name="Fill" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Заполнить автоматически" Padding="5" Margin="0, 37, 150, 0" BorderBrush="Red" Background="White" BorderThickness="3" Click="Fill_Click"></Button>
+        <Button x:Name="btn_GetInfo" VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="Получить информацию" ToolTip="Выберите номер посылки и нажмите на кнопку" Padding="5" Margin="5, 0, 0, 65" BorderBrush="Red" Background="White" BorderThickness="3" Click="btn_GetInfo_Click"></Button>
 
         <Menu HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Black" Background="Black">
             <MenuItem x:Name="about" Header="О программе" Background="#FFEFFF5B" Click="about_Click"></MenuItem>

@@ -27,6 +27,7 @@ namespace PracticalWork8
         public MainWindow()
         {
             InitializeComponent();
+            citiesList.ItemsSource = cities;
             list.ItemsSource = mailNums;
         }
 
@@ -46,24 +47,27 @@ namespace PracticalWork8
 
         private void about_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Дунаева М.И.\n\nПрактическая работа №8\n\n" +
-                "Создать интерфейс – серия чисел (см. лекцию). Создать класс – простые числа." +
-                "Класс должен включать конструктор. Сравнение производить по текущему значению.");
+            MessageBox.Show("Дунаева М.И.\n\nПрактическая работа №9\n\n" +
+                "Описать, используя структуру, почтовую сортировку (город, улица, дом, квартира, " +
+                "кому, ценность).Вывести результат на экран.Вывести информацию, сколько" +
+                "посылок отправлено в заданный город");
         }
 
         private void Fill_Click(object sender, RoutedEventArgs e)
         {
-            mails.Add(new MailSorting("Город N", "Улица 1", "1А", "4", "a5", 1500));
+            int count = mails.Count;
+
             mails.Add(new MailSorting("Город N", "Улица 2", "15Б", "14", "a5", 2000));
             mails.Add(new MailSorting("Эсфахан", "Улица 3", "13", "6", "a5", 3000));
             mails.Add(new MailSorting("Эсфахан", "Улица 4", "2", "43", "a5", 150000));
             mails.Add(new MailSorting("Рязань", "Улица 5", "10", "9", "a5", 1300));
 
-            mailNums.Add(1);
-            mailNums.Add(2);
-            mailNums.Add(3);
-            mailNums.Add(4);
-            mailNums.Add(5);
+
+            for (int i = 1; i <= 4; i++)
+            {
+                mailNums.Add(count + i);
+                if (!cities.Contains(mails[count - 1 + i].City)) cities.Add(mails[count-1+i].City);
+            }
         }
 
         private void btn_GetInfo_Click(object sender, RoutedEventArgs e)
@@ -80,7 +84,29 @@ namespace PracticalWork8
 
         private void btn_GetMail_Click(object sender, RoutedEventArgs e)
         {
+            string city = Convert.ToString(citiesList.SelectedItem);
+            int count = 0;
+            foreach(MailSorting item in mails) if (item.City == city) count++;
+            mailToCity.Text = count.ToString();
+            citiesList.SelectedItems.Clear();
+        }
 
+        private void btn_AddMail_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string mail = enterMail.Text;
+                string[] mailArr = mail.Split(',');
+
+                foreach (string s in mailArr) s.Trim(' ');
+                mails.Add(new MailSorting(mailArr[0], mailArr[1], mailArr[2],
+                    mailArr[3], mailArr[4], int.Parse(mailArr[5])));
+                mailNums.Add(mails.Count());
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
